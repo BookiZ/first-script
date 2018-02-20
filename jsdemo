@@ -2,6 +2,12 @@
 var fs = require('fs')
 
 var dirName = process.argv[2]
+fs.exists('dirName', (exists) => {
+    if (exists) {
+      console.error('dirName already exists');
+    } 
+    else {
+    
 fs.mkdirSync("./" + dirName)
 process.chdir("./" + dirName)
 fs.mkdirSync('css')
@@ -12,3 +18,5 @@ fs.writeFileSync("css/style.css", "h1{color: red;}")
 fs.writeFileSync("./js/main.js", "var string = 'Hello World' alert(string)")
 
 process.exit(0)
+    }}
+)
